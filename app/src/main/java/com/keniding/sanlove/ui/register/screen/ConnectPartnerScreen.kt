@@ -85,7 +85,7 @@ fun ConnectPartnerScreen(
                     OutlinedTextField(
                         value = selectedDate?.format(dateFormatter) ?: "",
                         onValueChange = { },
-                        label = { Text("Fecha de nacimiento") },
+                        label = { Text("¿Cuándo comenzó su historia de amor?") },
                         readOnly = true,
                         trailingIcon = {
                             IconButton(onClick = { showDatePicker = true }) {
@@ -122,7 +122,7 @@ fun ConnectPartnerScreen(
                                 viewModel.connectWithPartner(
                                     code = code!!,
                                     name = name,
-                                    birthDate = selectedDate!!.format(dateFormatter),
+                                    startDate = selectedDate!!.format(dateFormatter),
                                     onSuccess = {
                                         navController.navigate(NavRoutes.Profile.route) {
                                             popUpTo(NavRoutes.Register.route) { inclusive = true }
@@ -198,14 +198,14 @@ fun ConnectPartnerScreen(
                     state = datePickerState,
                     title = {
                         Text(
-                            text = "Selecciona tu fecha de nacimiento",
+                            text = "Selecciona tu fecha de inicio de su relación",
                             modifier = Modifier.fillMaxWidth(),
                             textAlign = TextAlign.Center
                         )
                     },
                     headline = {
                         Text(
-                            text = "Fecha de nacimiento",
+                            text = "Fecha de inicio de su relación",
                             modifier = Modifier.fillMaxWidth(),
                             textAlign = TextAlign.Center
                         )

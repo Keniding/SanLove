@@ -1,5 +1,7 @@
 package com.keniding.sanlove.ui.common.navigation
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
@@ -20,6 +22,7 @@ import com.keniding.sanlove.ui.common.theme.ValentineColors
 import com.keniding.sanlove.ui.register.screen.ConnectPartnerScreen
 import com.keniding.sanlove.ui.register.screen.RegisterScreen
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun NavGraph(
     modifier: Modifier = Modifier

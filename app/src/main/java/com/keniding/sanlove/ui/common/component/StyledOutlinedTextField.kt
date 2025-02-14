@@ -14,13 +14,17 @@ fun StyledOutlinedTextField(
     value: String,
     onValueChange: (String) -> Unit,
     label: String,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    minLines: Int = 1,
+    maxLines: Int = Int.MAX_VALUE
 ) {
     OutlinedTextField(
         value = value,
         onValueChange = onValueChange,
         label = { Text(label) },
         modifier = modifier.fillMaxWidth(),
+        minLines = minLines,
+        maxLines = maxLines,
         colors = OutlinedTextFieldDefaults.colors(
             focusedBorderColor = ValentineColors.DeepRose,
             unfocusedBorderColor = ValentineColors.Rose.copy(alpha = 0.6f),
@@ -31,7 +35,6 @@ fun StyledOutlinedTextField(
         ),
         textStyle = MaterialTheme.typography.bodyMedium.copy(
             color = ValentineColors.DeepRose
-        )
+        ),
     )
 }
-

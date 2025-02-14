@@ -23,15 +23,15 @@ class RegisterViewModel(
     private val _registrationState = MutableStateFlow(RegistrationState())
     val registrationState = _registrationState.asStateFlow()
 
-    fun startRegistration(name: String, birthDate: String) {
+    fun startRegistration(name: String, startDate: String) {
         viewModelScope.launch {
             try {
                 val temporaryCode = generateTemporaryCode()
                 val partner = Partner(
                     name = name,
-                    birthDate = birthDate,
-                    avatar = "",  // Se puede añadir después
-                    nickname = "" // Se puede añadir después
+                    startDate = startDate,
+                    avatar = "",
+                    nickname = ""
                 )
 
                 repository.createTemporaryProfile(temporaryCode, partner)
@@ -108,7 +108,7 @@ class RegisterViewModel(
     fun connectWithPartner(
         code: String,
         name: String,
-        birthDate: String,
+        startDate: String,
         onSuccess: () -> Unit,
         onError: (String) -> Unit
     ) {
@@ -116,7 +116,7 @@ class RegisterViewModel(
             try {
                 val partner2 = Partner(
                     name = name,
-                    birthDate = birthDate,
+                    startDate = startDate,
                     avatar = "",
                     nickname = ""
                 )

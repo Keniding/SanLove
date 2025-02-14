@@ -1,5 +1,7 @@
 package com.keniding.sanlove.ui.register.screen
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
@@ -16,6 +18,7 @@ import com.keniding.sanlove.ui.register.component.*
 import com.keniding.sanlove.ui.valentine.component.other.FloatingHearts
 import org.koin.androidx.compose.koinViewModel
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun RegisterScreen(
     viewModel: RegisterViewModel = koinViewModel(),

@@ -27,13 +27,17 @@ class ProfileRepository {
         val partner1 = snapshot.getValue(Partner::class.java)
             ?: throw Exception("Código de conexión inválido")
 
+        if (partner1.startDate != partner2.startDate) {
+            throw Exception("Las fechas de inicio de la relación no coinciden. Por favor, verifiquen juntos la fecha correcta.")
+        }
+
         val profileId = UUID.randomUUID().toString()
         val profile = CoupleProfile(
             id = profileId,
             partner1 = partner1,
             partner2 = partner2,
             relationship = RelationshipInfo(
-                anniversaryDate = LocalDate.now().toString(),
+                anniversaryDate = partner1.startDate,
                 specialMoments = listOf(),
                 petNamePartner1 = "",
                 petNamePartner2 = "",

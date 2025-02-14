@@ -14,6 +14,6 @@ data class Partner(
     @get:PropertyName("avatar") @set:PropertyName("avatar")
     var avatar: String = "",
 
-    @get:PropertyName("birthDate") @set:PropertyName("birthDate")
-    var birthDate: String = ""
+    @get:PropertyName("startDate") @set:PropertyName("startDate")
+    var startDate: String = ""
 )

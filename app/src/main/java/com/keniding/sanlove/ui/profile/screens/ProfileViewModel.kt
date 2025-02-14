@@ -34,13 +34,13 @@ class ProfileViewModel(
                         name = "Juan",
                         nickname = "Mi Rey",
                         avatar = "https://i.pinimg.com/474x/39/8f/0b/398f0b34e7b34959b5b47831c0e4d6ae.jpg",
-                        birthDate = "15/03/1995"
+                        startDate = "15/03/1995"
                     ),
                     partner2 = Partner(
                         name = "María",
                         nickname = "Mi Reina",
                         avatar = "https://i.pinimg.com/474x/73/33/1f/73331ff5c5628331cf95a2214d8f8eec.jpg",
-                        birthDate = "22/07/1996"
+                        startDate = "22/07/1996"
                     ),
                     relationship = RelationshipInfo(
                         anniversaryDate = "14/02/2023",
@@ -81,6 +81,28 @@ class ProfileViewModel(
                 _uiState.update { it.copy(profile = profile) }
             } catch (e: Exception) {
                 _uiState.update { it.copy(error = e.message) }
+            }
+        }
+    }
+
+    fun updateProfile(updatedProfile: CoupleProfile) {
+        viewModelScope.launch {
+            try {
+                _uiState.update { it.copy(isLoading = true) }
+                repository.saveProfile(updatedProfile)
+                _uiState.update {
+                    it.copy(
+                        profile = updatedProfile,
+                        isLoading = false
+                    )
+                }
+            } catch (e: Exception) {
+                _uiState.update {
+                    it.copy(
+                        error = e.message,
+                        isLoading = false
+                    )
+                }
             }
         }
     }

@@ -85,7 +85,7 @@ fun InitialRegistrationForm(
                     OutlinedTextField(
                         value = selectedDate?.format(dateFormatter) ?: "",
                         onValueChange = { },
-                        label = { Text("Fecha de nacimiento") },
+                        label = { Text("Fecha de inicio de la relación") },
                         readOnly = true,
                         trailingIcon = {
                             IconButton(onClick = { showDatePicker = true }) {
@@ -121,7 +121,7 @@ fun InitialRegistrationForm(
                                 error = null
                                 viewModel.startRegistration(
                                     name = name,
-                                    birthDate = selectedDate!!.format(dateFormatter)
+                                    startDate = selectedDate!!.format(dateFormatter)
                                 )
                             } else {
                                 error = "Por favor completa todos los campos"
@@ -187,7 +187,7 @@ fun InitialRegistrationForm(
                     state = datePickerState,
                     title = {
                         Text(
-                            text = "Selecciona tu fecha de nacimiento",
+                            text = "¿Cuándo comenzó su historia de amor?",
                             modifier = Modifier.fillMaxWidth(),
                             textAlign = TextAlign.Center,
                             color = ValentineColors.DeepRose
