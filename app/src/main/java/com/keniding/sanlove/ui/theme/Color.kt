@@ -12,8 +12,8 @@ object ValentineColors {
     val GlassEffect = Color.White.copy(alpha = 0.12f)
 
     val backgroundGradient = listOf(
-        DeepRose,
-        SoftPink
+        SoftPink,
+        DeepRose
     )
 
     val glassCard = BlushPink.copy(alpha = 0.15f)

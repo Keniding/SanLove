@@ -1,4 +1,4 @@
-package com.keniding.sanlove.ui.screens.messages
+package com.keniding.sanlove.ui.screens.profile
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.dp
 import com.keniding.sanlove.ui.component.glass.GlassCard
 
 @Composable
-fun MessagesScreen() {
+fun ProfileScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -17,7 +17,7 @@ fun MessagesScreen() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Mis Mensajes",
+            text = "Mi Perfil",
             style = MaterialTheme.typography.headlineLarge,
             modifier = Modifier.padding(vertical = 16.dp)
         )
@@ -29,7 +29,7 @@ fun MessagesScreen() {
                 modifier = Modifier.padding(16.dp)
             ) {
                 Text(
-                    text = "Aquí podrás ver y gestionar tus mensajes",
+                    text = "Configura tu perfil y preferencias",
                     style = MaterialTheme.typography.bodyLarge
                 )
             }

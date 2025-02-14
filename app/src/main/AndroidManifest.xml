@@ -14,7 +14,7 @@
     android:theme="@style/Theme.SanLove"
     tools:targetApi="31">
     <activity
-        android:name=".MyLove"
+        android:name=".ui.MyLove"
         android:exported="true"
         android:label="@string/app_name"
         android:theme="@style/Theme.SanLove">
