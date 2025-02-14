@@ -1,4 +1,4 @@
-package com.keniding.sanlove.ui.valentine.component.navigation
+package com.keniding.sanlove.ui.common.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
@@ -13,7 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.keniding.sanlove.ui.common.navigation.NavRoutes
 import com.keniding.sanlove.ui.common.theme.ValentineColors
 
 data class BottomNavItem(

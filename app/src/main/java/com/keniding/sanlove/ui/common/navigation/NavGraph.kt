@@ -3,23 +3,34 @@ package com.keniding.sanlove.ui.common.navigation
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.keniding.sanlove.ui.valentine.component.navigation.BottomBar
+import androidx.navigation.navArgument
+import androidx.navigation.navDeepLink
 import com.keniding.sanlove.ui.valentine.component.other.FloatingHearts
 import com.keniding.sanlove.ui.messages.MessagesScreen
 import com.keniding.sanlove.ui.profile.screens.ProfileScreen
 import com.keniding.sanlove.ui.valentine.screens.ValentineScreen
 import com.keniding.sanlove.ui.common.theme.ValentineColors
+import com.keniding.sanlove.ui.register.screen.ConnectPartnerScreen
+import com.keniding.sanlove.ui.register.screen.RegisterScreen
 
 @Composable
 fun NavGraph(
     modifier: Modifier = Modifier
 ) {
     val navController = rememberNavController()
+
+    LaunchedEffect(Unit) {
+        DeepLinkHandler.consumePendingCode()?.let { code ->
+            navController.navigateToConnectPartner(code)
+        }
+    }
 
     Box(
         modifier = Modifier
@@ -40,9 +51,28 @@ fun NavGraph(
             ) {
                 NavHost(
                     navController = navController,
-                    startDestination = NavRoutes.Valentine.route,
+                    startDestination = NavRoutes.Register.route,
                     modifier = modifier
                 ) {
+                    composable(NavRoutes.Register.route) {
+                        RegisterScreen(navController = navController)
+                    }
+
+                    composable(
+                        route = NavRoutes.ConnectPartner.route,
+                        arguments = listOf(
+                            navArgument("code") { type = NavType.StringType }
+                        ),
+                        deepLinks = listOf(
+                            navDeepLink {
+                                uriPattern = "sanlove://connect/{code}"
+                            }
+                        )
+                    ) { backStackEntry ->
+                        val code = backStackEntry.arguments?.getString("code")
+                        ConnectPartnerScreen(code = code, navController = navController)
+                    }
+
                     composable(NavRoutes.Valentine.route) {
                         ValentineScreen()
                     }

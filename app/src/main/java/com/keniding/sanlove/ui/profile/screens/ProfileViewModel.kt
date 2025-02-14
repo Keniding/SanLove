@@ -84,15 +84,4 @@ class ProfileViewModel(
             }
         }
     }
-
-    fun addSpecialMoment(moment: SpecialMoment) {
-        viewModelScope.launch {
-            try {
-                repository.addSpecialMoment("1", moment)
-                loadProfile()
-            } catch (e: Exception) {
-                _uiState.update { it.copy(error = e.message) }
-            }
-        }
-    }
 }

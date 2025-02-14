@@ -117,4 +117,8 @@ dependencies {
 
     // WorkManager
     implementation(libs.androidx.work.runtime.ktx)
+
+    // Core
+    implementation(libs.core)
+    releaseImplementation(libs.androidx.icons.extended )
 }
