@@ -1,8 +1,19 @@
 package com.keniding.sanlove.data.model.profile
 
+import com.google.firebase.database.IgnoreExtraProperties
+import com.google.firebase.database.PropertyName
+
+@IgnoreExtraProperties
 data class CoupleProfile(
-    val id: String,
-    val partner1: Partner,
-    val partner2: Partner,
-    val relationship: RelationshipInfo
+    @get:PropertyName("id") @set:PropertyName("id")
+    var id: String = "",
+
+    @get:PropertyName("partner1") @set:PropertyName("partner1")
+    var partner1: Partner = Partner(),
+
+    @get:PropertyName("partner2") @set:PropertyName("partner2")
+    var partner2: Partner = Partner(),
+
+    @get:PropertyName("relationship") @set:PropertyName("relationship")
+    var relationship: RelationshipInfo = RelationshipInfo()
 )

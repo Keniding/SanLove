@@ -2,6 +2,7 @@ package com.keniding.sanlove.di
 
 import com.keniding.sanlove.data.datasource.LocalMessageDataSource
 import com.keniding.sanlove.data.repository.MessageRepository
+import com.keniding.sanlove.data.repository.ProfileRepository
 import com.keniding.sanlove.domain.repository.IMessageRepository
 import com.keniding.sanlove.domain.usecase.GetValentineMessageUseCase
 import com.keniding.sanlove.ui.profile.screens.ProfileViewModel
@@ -15,11 +16,12 @@ val appModule = module {
 
     // Repositories
     single<IMessageRepository> { MessageRepository(get()) }
+    single { ProfileRepository() }
 
     // UseCases
     factory { GetValentineMessageUseCase(get()) }
 
     // ViewModels
     viewModel { ValentineViewModel(get()) }
-    viewModel { ProfileViewModel() }
+    viewModel { ProfileViewModel(get()) }
 }

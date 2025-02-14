@@ -56,7 +56,7 @@ fun SpotifyPlayer(song: SongInfo) {
                     onClick = {
                         scope.launch {
                             if (!isPlaying) {
-                                musicService.playPreview(song.previewUrl)
+                                musicService.playPreview(song.previewUrl!!)
                             } else {
                                 musicService.togglePlayPause()
                             }

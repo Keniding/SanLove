@@ -1,8 +1,19 @@
 package com.keniding.sanlove.data.model.profile
 
+import com.google.firebase.database.IgnoreExtraProperties
+import com.google.firebase.database.PropertyName
+
+@IgnoreExtraProperties
 data class Partner(
-    val name: String,
-    val nickname: String,
-    val avatar: String, // URL de la imagen
-    val birthDate: String
+    @get:PropertyName("name") @set:PropertyName("name")
+    var name: String = "",
+
+    @get:PropertyName("nickname") @set:PropertyName("nickname")
+    var nickname: String = "",
+
+    @get:PropertyName("avatar") @set:PropertyName("avatar")
+    var avatar: String = "",
+
+    @get:PropertyName("birthDate") @set:PropertyName("birthDate")
+    var birthDate: String = ""
 )

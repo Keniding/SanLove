@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "107663650041",
+    "project_id": "sanlove-1d0a7",
+    "storage_bucket": "sanlove-1d0a7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107663650041:android:2fddd1e86e1b99078ec628",
+        "android_client_info": {
+          "package_name": "com.keniding.sanlove"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc6cmf5zXarLhFKgBtibBAw8fxXZ16hp0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
