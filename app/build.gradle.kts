@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.keniding.sanlove"
-        minSdk = 33
+        minSdk = 21
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -83,4 +83,13 @@ dependencies {
     implementation(libs.koin.core)
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
+
+    // Coil
+    implementation(libs.coil.compose)
+
+    // Media3
+    implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.androidx.media3.ui)
+    implementation(libs.androidx.media3.session)
+
 }

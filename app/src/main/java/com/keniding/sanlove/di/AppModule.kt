@@ -4,7 +4,8 @@ import com.keniding.sanlove.data.datasource.LocalMessageDataSource
 import com.keniding.sanlove.data.repository.MessageRepository
 import com.keniding.sanlove.domain.repository.IMessageRepository
 import com.keniding.sanlove.domain.usecase.GetValentineMessageUseCase
-import com.keniding.sanlove.ui.screens.valentine.ValentineViewModel
+import com.keniding.sanlove.ui.profile.screens.ProfileViewModel
+import com.keniding.sanlove.ui.valentine.screens.ValentineViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -20,4 +21,5 @@ val appModule = module {
 
     // ViewModels
     viewModel { ValentineViewModel(get()) }
+    viewModel { ProfileViewModel() }
 }

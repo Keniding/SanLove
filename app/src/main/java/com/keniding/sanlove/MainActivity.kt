@@ -28,8 +28,8 @@ import kotlin.random.Random
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.platform.LocalConfiguration
-import com.keniding.sanlove.data.model.ParticleState
-
+import com.keniding.sanlove.domain.model.ParticleState
+/**
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -247,6 +247,7 @@ private fun DrawScope.drawHeart(color: Color, size: Float) {
     )
 }
 
+
 object ValentineColors {
     val Rose = Color(0xFFFF6B6B)
     val DeepRose = Color(0xFFE63946)
@@ -281,3 +282,4 @@ fun ValentineTheme(content: @Composable () -> Unit) {
         content = content
     )
 }
+*/
