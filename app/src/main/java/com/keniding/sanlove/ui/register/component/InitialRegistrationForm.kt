@@ -19,6 +19,7 @@ import com.keniding.sanlove.ui.register.screen.RegisterViewModel
 import org.koin.androidx.compose.koinViewModel
 import java.time.Instant
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
@@ -167,8 +168,14 @@ fun InitialRegistrationForm(
                     TextButton(
                         onClick = {
                             datePickerState.selectedDateMillis?.let { millis ->
-                                selectedDate = Instant.ofEpochMilli(millis)
-                                    .atZone(ZoneId.systemDefault())
+                                val instant = Instant.ofEpochMilli(millis)
+                                val utcDateTime = instant.atZone(ZoneId.of("UTC"))
+                                    .withHour(12)
+                                    .withMinute(0)
+                                    .withSecond(0)
+
+                                selectedDate = utcDateTime
+                                    .withZoneSameInstant(ZoneId.systemDefault())
                                     .toLocalDate()
                             }
                             showDatePicker = false

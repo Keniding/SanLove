@@ -59,6 +59,7 @@ android {
             excludes += "META-INF/*.kotlin_module"
             pickFirsts += "META-INF/gradle/incremental.annotation.processors"
             pickFirsts += "META-INF/io.netty.versions.properties"
+            pickFirsts += "mozilla/public-suffix-list.txt"
         }
     }
 }
@@ -79,6 +80,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.appdistribution.gradle)
+    implementation(libs.firebase.crashlytics.buildtools)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -111,6 +113,7 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.database.ktx)
     implementation(libs.firebase.auth.ktx)
+    implementation(libs.play.services.auth)
 
     // Compressor
     implementation(libs.compressor)

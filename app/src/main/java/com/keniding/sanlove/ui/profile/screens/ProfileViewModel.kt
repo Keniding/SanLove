@@ -77,8 +77,13 @@ class ProfileViewModel(
     private fun loadProfile() {
         viewModelScope.launch {
             try {
-                val profile = repository.getProfile("1")
-                _uiState.update { it.copy(profile = profile) }
+                val profileResult = repository.getProfile("1")
+                if (profileResult.isSuccess) {
+                    val profile = profileResult.getOrNull()
+                    _uiState.update { it.copy(profile = profile) }
+                } else {
+                    _uiState.update { it.copy(error = "Error al cargar el perfil") }
+                }
             } catch (e: Exception) {
                 _uiState.update { it.copy(error = e.message) }
             }
